@@ -54,9 +54,11 @@ pytest
 
 ## Opção adicional:
 
-Caso queira paginar as requisições, adicionar o comando abaixo ao arquivo `luizalabs_employee_manager/settings.py`, onde `PAGE_SIZE` é a quantidade de registros por página:
+Caso queira paginar as requisições, alterar variável `REST_FRAMEWORK` abaixo no arquivo `luizalabs_employee_manager/settings.py`, onde `PAGE_SIZE` é a quantidade de registros por página:
 ```
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [],
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 5
 }
